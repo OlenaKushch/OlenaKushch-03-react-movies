@@ -7,7 +7,7 @@ interface MovieGridProps {
     onSelect: (movie: Movie) => void;
 }
 
-const IMAGE_URL = 'https://imgae.tmdb.org/t/p/w500';
+const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
 const MovieGrid = ({ movies, onSelect } : MovieGridProps) => {
     if (movies.length === 0) return null;

@@ -12,19 +12,15 @@ export default function SearchBar ({onSubmit}:
     SearchBarProps){ 
         const [query, setQuery] = useState('');
 
-        const handleSubmit = (e:React.FocusEvent<HTMLFormElement>) => 
+        const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => 
         {e.preventDefault();
-        
-        const formData = new FormData(e.currentTarget);
-        const movie = formData.get('query') as string;
-
-            if (!movie.trim()) { 
+             if (!query.trim()) { 
                 toast.error('Please enter your search query.');
                 return;
             }
-            onSubmit(movie);
+            onSubmit(query.trim());
             setQuery('');
-     };
+     }
     return (
     <header className={styles.header}>
       <div className={styles.container}>
