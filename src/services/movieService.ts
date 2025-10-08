@@ -1,4 +1,4 @@
-import axios, { type AxiosResponse } from "axios";
+import axios from "axios";
 import type { Movie } from "../types/movie"
 
 
@@ -14,7 +14,8 @@ interface URLResponse {
 
 export async function getMovies(query: string): Promise<Movie[]> {
 if (!TOKEN) throw new Error("TMDB token is missing");
-try { const response: AxiosResponse<URLResponse> = await axios.get(API_URL, {
+try { 
+  const response = await axios.get<URLResponse>(API_URL, {
   params: {
     query,
     language: "en-US",
